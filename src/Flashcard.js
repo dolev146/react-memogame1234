@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 export default function Flashcard({ flashcard }) {
     const [flip, setFlip] = useState(false)
     const [height, setHeight] = useState("initial")
-    const [Dolev, setDolev] = useState([])
+    const [trueSideCards, settrueSideCards] = useState([])
 
     const frontEl = useRef()
     const backEl = useRef()
@@ -17,13 +17,13 @@ export default function Flashcard({ flashcard }) {
     useEffect(() => {
         console.log("render")
         console.log(flip)
-        console.log(Dolev)
+        console.log(trueSideCards)
     })
 
     const handleClick = () => {
         setFlip(!flip)
-        setDolev(prevDolev => {
-            const newArray = [...prevDolev]
+        settrueSideCards(prevtrueSideCards => {
+            const newArray = [...prevtrueSideCards]
             console.log(flashcard.answer)
             newArray.push(flashcard.answer)
             return newArray
